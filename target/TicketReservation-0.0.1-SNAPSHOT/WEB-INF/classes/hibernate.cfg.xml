@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- DB Connection -->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/train_ticket_db?useSSL=false&amp;serverTimezone=UTC</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.password"></property>
+
+        <!-- Dialect -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL8Dialect</property>
+
+        <!-- Debug -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Entity Mapping -->
+        <mapping class="com.trainapp.model.User"/>
+        <mapping class="com.trainapp.model.Trajet"/>
+        <mapping class="com.trainapp.model.Gare"/>
+        <mapping class="com.trainapp.model.Voyage"/>
+        <mapping class="com.trainapp.model.Classe"/>
+        <mapping class="com.trainapp.model.Preference"/>
+        <mapping class="com.trainapp.model.Billet"/>
+    </session-factory>
+</hibernate-configuration>
