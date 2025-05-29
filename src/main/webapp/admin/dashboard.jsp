@@ -336,9 +336,9 @@
                         <h5 class="card-title">
                             <i class="bi bi-building"></i> Gestion des Gares
                         </h5>
-                        <p class="card-text">Gérer les gares de départ et d'arrivée avec une interface intuitive</p>
+                        <p class="card-text">Gerer les gares de depart et d'arrivee avec une interface intuitive</p>
                         <a href="${pageContext.request.contextPath}/admin/gares" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -351,9 +351,9 @@
                         <h5 class="card-title">
                             <i class="bi bi-train-front"></i> Gestion des Voyages
                         </h5>
-                        <p class="card-text">Gérer les voyages et les trajets en temps réel</p>
+                        <p class="card-text">Gerer les voyages et les trajets en temps reel</p>
                         <a href="${pageContext.request.contextPath}/admin/voyages" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -364,11 +364,11 @@
                 <div class="card management-card">
                     <div class="card-body">
                         <h5 class="card-title">
-                            <i class="bi bi-arrow-left-right"></i> Voyages Consécutifs
+                            <i class="bi bi-arrow-left-right"></i> Voyages Consecutifs
                         </h5>
-                        <p class="card-text">Gérer les voyages consécutifs et les correspondances</p>
+                        <p class="card-text">Gerer les voyages consecutifs et les correspondances</p>
                         <a href="${pageContext.request.contextPath}/admin/voyages-consecutifs" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -381,9 +381,9 @@
                         <h5 class="card-title">
                             <i class="bi bi-people"></i> Gestion des Utilisateurs
                         </h5>
-                        <p class="card-text">Gérer les utilisateurs et leurs comptes en toute sécurité</p>
+                        <p class="card-text">Gerer les utilisateurs et leurs comptes en toute securite</p>
                         <a href="${pageContext.request.contextPath}/admin/utilisateurs" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -396,9 +396,9 @@
                         <h5 class="card-title">
                             <i class="bi bi-x-circle"></i> Demandes d'Annulation
                         </h5>
-                        <p class="card-text">Gérer les demandes d'annulation de billets efficacement</p>
+                        <p class="card-text">Gerer les demandes d'annulation de billets efficacement</p>
                         <a href="${pageContext.request.contextPath}/admin/demandes-annulation" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -411,9 +411,9 @@
                         <h5 class="card-title">
                             <i class="bi bi-credit-card"></i> Gestion des Paiements
                         </h5>
-                        <p class="card-text">Gérer les paiements et les remboursements en sécurité</p>
+                        <p class="card-text">Gerer les paiements </p>
                         <a href="${pageContext.request.contextPath}/admin/paiements" class="modern-btn">
-                            Accéder
+                            Acceder
                         </a>
                     </div>
                 </div>
@@ -474,7 +474,7 @@
         
         <div class="logout-section">
             <a href="${pageContext.request.contextPath}/logout" class="logout-btn">
-                <i class="bi bi-box-arrow-right"></i> Déconnexion
+                <i class="bi bi-box-arrow-right"></i> Deconnexion
             </a>
         </div>
     </div>

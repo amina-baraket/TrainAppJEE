@@ -45,8 +45,8 @@
         <p>Merci pour votre achat.</p>
 
         <%-- You could add more details here if needed, e.g., links to view tickets --%>
-        <div class="mt-4">
-            <a href="RechercheTrajetServlet" class="btn btn-primary">Retour à la recherche de trajets</a>
+        <div class="container mt-4 text-center">
+            <a href="index.jsp" class="btn btn-secondary">Retour à l'accueil</a>
         </div>
 
     </div>

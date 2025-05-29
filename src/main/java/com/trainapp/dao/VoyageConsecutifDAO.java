@@ -82,8 +82,8 @@ public class VoyageConsecutifDAO {
     public List<VoyageConsecutif> getAll() {
         EntityManager em = JPAUtil.getEntityManager();
         try {
-            // Eagerly fetch associated Voyages and Gares
-            Query query = em.createQuery("SELECT vc FROM VoyageConsecutif vc JOIN FETCH vc.voyageInitial vi JOIN FETCH vi.gareDepart JOIN FETCH vi.gareArrivee JOIN FETCH vc.voyageSuivant vs JOIN FETCH vs.gareDepart JOIN FETCH vs.gareArrivee");
+            // Eagerly fetch associated Voyages and their related Trajets and Gares
+            Query query = em.createQuery("SELECT vc FROM VoyageConsecutif vc JOIN FETCH vc.voyageInitial vi JOIN FETCH vi.voyageSuivant vs JOIN FETCH vi.trajet t_vi JOIN FETCH t_vi.gareDepart JOIN FETCH t_vi.gareArrivee JOIN FETCH vs.trajet t_vs JOIN FETCH t_vs.gareDepart JOIN FETCH t_vs.gareArrivee");
             return query.getResultList();
         } finally {
             em.close();

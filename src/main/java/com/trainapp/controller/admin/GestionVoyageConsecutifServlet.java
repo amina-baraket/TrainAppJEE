@@ -2,6 +2,7 @@ package com.trainapp.controller.admin;
 
 import java.io.IOException;
 import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -40,22 +41,26 @@ public class GestionVoyageConsecutifServlet extends HttpServlet {
         String action = request.getPathInfo();
         
         try {
-            switch (action) {
-                case "/liste":
-                    listeVoyagesConsecutifs(request, response);
-                    break;
-                case "/ajouter":
-                    afficherFormulaireAjout(request, response);
-                    break;
-                case "/modifier":
-                    afficherFormulaireModification(request, response);
-                    break;
-                case "/supprimer":
-                    supprimerVoyageConsecutif(request, response);
-                    break;
-                default:
-                    response.sendRedirect(request.getContextPath() + "/admin/voyages-consecutifs/liste");
-                    break;
+            if (action == null || action.equals("/") || action.equals("")) {
+                listeVoyagesConsecutifs(request, response);
+            } else {
+                switch (action) {
+                    case "/liste":
+                        listeVoyagesConsecutifs(request, response);
+                        break;
+                    case "/ajouter":
+                        afficherFormulaireAjout(request, response);
+                        break;
+                    case "/modifier":
+                        afficherFormulaireModification(request, response);
+                        break;
+                    case "/supprimer":
+                        supprimerVoyageConsecutif(request, response);
+                        break;
+                    default:
+                        response.sendError(HttpServletResponse.SC_NOT_FOUND);
+                        break;
+                }
             }
         } catch (Exception e) {
             request.setAttribute("error", "Une erreur est survenue : " + e.getMessage());
