@@ -32,23 +32,39 @@
                 <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Trajet ID</th>
-                    <th>Date de Voyage</th>
+                    <th>Départ</th>
+                    <th>Destination</th>
+                    <th>Date</th>
+                    <th>Heure Départ</th>
+                    <th>Heure Arrivée</th>
+                    <th>Prix</th>
+                    <th>Places</th>
+                    <th>Promotion</th>
                     <th>Actions</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${voyages}" var="voyage">
+                <c:forEach items="${voyages}" var="trajet">
                     <tr>
-                        <td>${voyage.id}</td>
-                        <td>${voyage.trajetId}</td>
-                        <td>${voyage.dateVoyage}</td>
+                        <td>${trajet.id}</td>
+                        <td>${trajet.depart}</td>
+                        <td>${trajet.destination}</td>
+                        <td>${trajet.date_depart}</td>
+                        <td>${trajet.heure_depart}</td>
+                        <td>${trajet.heure_arrivee}</td>
+                        <td>${trajet.prix} €</td>
+                        <td>${trajet.places_disponibles}</td>
                         <td>
-                            <a href="${pageContext.request.contextPath}/admin/voyages/modifier?id=${voyage.id}" 
+                            <c:if test="${trajet.promotionPercentage > 0}">
+                                <span class="badge bg-success">${trajet.promotionPercentage}%</span>
+                            </c:if>
+                        </td>
+                        <td>
+                            <a href="${pageContext.request.contextPath}/admin/voyages/modifier?id=${trajet.id}" 
                                class="btn btn-sm btn-warning">
                                 <i class="fas fa-edit"></i> Modifier
                             </a>
-                            <a href="${pageContext.request.contextPath}/admin/voyages/supprimer?id=${voyage.id}" 
+                            <a href="${pageContext.request.contextPath}/admin/voyages/supprimer?id=${trajet.id}" 
                                class="btn btn-sm btn-danger"
                                onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce voyage ?')">
                                 <i class="fas fa-trash-alt"></i> Supprimer

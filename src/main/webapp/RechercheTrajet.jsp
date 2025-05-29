@@ -399,7 +399,25 @@
                                     <td><fmt:formatDate value="${trajet.date_depart}" pattern="dd/MM/yyyy"/></td>
                                     <td><fmt:formatDate value="${trajet.heure_depart}" pattern="HH:mm"/></td>
                                     <td><fmt:formatDate value="${trajet.heure_arrivee}" pattern="HH:mm"/></td>
-                                    <td><span class="price-badge"><fmt:formatNumber value="${trajet.prix}" pattern="#,##0.00"/> €</span></td>
+                                    <td>
+                                        <c:if test="${trajet.promotionPercentage > 0}">
+                                            <%-- Afficher le prix original barré --%>
+                                            <span class="original-price" style="text-decoration: line-through; color: gray;">
+                                                <fmt:formatNumber value="${trajet.prix}" pattern="#,##0.00"/> €
+                                            </span>
+                                            <%-- Calculer et afficher le prix réduit --%>
+                                            <c:set var="prixReduit" value="${trajet.prix * (1 - trajet.promotionPercentage / 100)}"/>
+                                            <span class="discounted-price price-badge" style="background-color: #a1ffce; color: #224422;">
+                                                <fmt:formatNumber value="${prixReduit}" pattern="#,##0.00"/> €
+                                            </span>
+                                            <%-- Afficher le pourcentage de promotion --%>
+                                            <span class="badge bg-success" style="margin-left: 5px;">${trajet.promotionPercentage}% OFF</span>
+                                        </c:if>
+                                        <c:if test="${trajet.promotionPercentage == 0}">
+                                            <%-- Afficher le prix normal s'il n'y a pas de promotion --%>
+                                            <span class="price-badge"><fmt:formatNumber value="${trajet.prix}" pattern="#,##0.00"/> €</span>
+                                        </c:if>
+                                    </td>
                                     <td><span class="available-seats">${trajet.places_disponibles}</span></td>
                                     <td>
                                         <form action="SelectionVoyageServlet" method="post">

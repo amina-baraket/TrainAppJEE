@@ -236,5 +236,9 @@
     });
 </script>
 
+<div class="container mt-4 text-center">
+    <a href="index.jsp" class="btn btn-secondary">Retour à l'accueil</a>
+</div>
+
 </body>
 </html>

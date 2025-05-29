@@ -127,6 +127,12 @@ public class ReserverVoyageServlet extends HttpServlet {
                     }
                 }
 
+                // Appliquer la promotion si elle existe
+                if (trajet.getPromotionPercentage() > 0) {
+                    double reduction = prixBillet * (trajet.getPromotionPercentage() / 100.0);
+                    prixBillet -= reduction;
+                }
+
                 billet.setPrixFinal(prixBillet);
                 
                 // Add to total price

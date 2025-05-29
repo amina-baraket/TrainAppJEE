@@ -339,7 +339,25 @@
                                  <td><fmt:formatDate value="${voyage.date_depart}" pattern="dd/MM/yyyy"/></td>
                                 <td><fmt:formatDate value="${voyage.heure_depart}" pattern="HH:mm"/></td>
                                  <td><fmt:formatDate value="${voyage.heure_arrivee}" pattern="HH:mm"/></td>
-                                <td><fmt:formatNumber value="${voyage.prix}" pattern="#,##0.00"/> €</td>
+                                <td>
+                                     <c:if test="${voyage.promotionPercentage > 0}">
+                                         <%-- Afficher le prix original barré --%>
+                                         <span class="original-price" style="text-decoration: line-through; color: gray;">
+                                             <fmt:formatNumber value="${voyage.prix}" pattern="#,##0.00"/> €
+                                         </span>
+                                         <%-- Calculer et afficher le prix réduit --%>
+                                         <c:set var="prixReduit" value="${voyage.prix * (1 - voyage.promotionPercentage / 100)}"/>
+                                         <span class="discounted-price price-badge" style="background-color: #a1ffce; color: #224422;">
+                                             <fmt:formatNumber value="${prixReduit}" pattern="#,##0.00"/> €
+                                         </span>
+                                         <%-- Afficher le pourcentage de promotion --%>
+                                         <span class="badge bg-success" style="margin-left: 5px;">${voyage.promotionPercentage}% OFF</span>
+                                     </c:if>
+                                     <c:if test="${voyage.promotionPercentage == 0}">
+                                         <%-- Afficher le prix normal s'il n'y a pas de promotion --%>
+                                         <span class="price-badge"><fmt:formatNumber value="${voyage.prix}" pattern="#,##0.00"/> €</span>
+                                     </c:if>
+                                 </td>
                             </tr>
                         </c:forEach>
                     </tbody>

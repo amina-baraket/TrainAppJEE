@@ -61,6 +61,12 @@ public class Trajet {
 	public void setPlaces_disponibles(int places_disponibles) {
 		this.places_disponibles = places_disponibles;
 	}
+	public double getPromotionPercentage() {
+		return promotionPercentage;
+	}
+	public void setPromotionPercentage(double promotionPercentage) {
+		this.promotionPercentage = promotionPercentage;
+	}
 	private String depart;
     private String destination;
     private Date date_depart;
@@ -68,4 +74,5 @@ public class Trajet {
     private Time heure_arrivee;
     private double prix;
     private int places_disponibles;
+    private double promotionPercentage = 0.0;
 }
